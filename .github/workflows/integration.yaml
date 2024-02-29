@@ -22,13 +22,21 @@ jobs:
       
       - uses: typst-community/setup-typst@v3
         with:
-          cache-dependency-path: g-exam.typ
+          # cache-dependency-path: g-exam.typ
           version: latest
 
-      - name: compile
-        run: |
-          cd ./examples/
-          typst compile exam-003.typ 
+      # - name: compile
+      #   run: |
+      #     cd ./examples/
+      #     typst compile exam-003.typ 
+
+       - name: Compile Typst to PDF
+        uses: mkpoli/compile-typst-action@main
+        with:
+          source_paths: 'examples/exam-003.typ'
+          output_paths: 'examples/exam-002.pdf'
+          # fonts_path: 'fonts'
+          root_path: '.'
 
       # - name: Typst
       #   uses: lvignoli/typst-action@main   
