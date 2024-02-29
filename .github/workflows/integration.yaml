@@ -15,7 +15,7 @@ jobs:
 
       - name: Delete samples
         run: |
-          rm /examples/*.pdf
+          rm -rf ./examples/*.pdf
 
       - name: Compile Typst to PDF
         uses: mkpoli/compile-typst-action@main
