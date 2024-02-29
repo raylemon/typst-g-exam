@@ -1,8 +1,8 @@
 name: Build Typst document (CI)
 on: [push, workflow_dispatch]
 
-permissions:
-  contents: write
+# permissions:
+#   contents: write
 
 jobs:
   build:

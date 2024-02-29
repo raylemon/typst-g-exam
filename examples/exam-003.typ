@@ -1,4 +1,4 @@
-#import "./g-exam.typ": g-exam, g-question, g-subquestion
+#import "../g-exam.typ": g-exam, g-question, g-subquestion
 
 #show: g-exam.with(
   author: (
