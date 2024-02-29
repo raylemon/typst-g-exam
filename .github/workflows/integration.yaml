@@ -8,9 +8,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     # working-directory: ./examples
-    # defaults:
-    #   run:
-    #     working-directory: ./examples/
+    defaults:
+      run:
+        working-directory: ./examples/
 
     steps:
       - name: Checkout
