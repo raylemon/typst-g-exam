@@ -19,15 +19,19 @@ jobs:
       # - name: Sample directory
       #   run: |
       #     cd ./examples/
+      
+      - uses: typst-community/setup-typst@v3
+        with:
+          cache-dependency-path: g-exam.typ
 
       - name: Typst
         uses: lvignoli/typst-action@main   
         with:
           source_file: |
             examples/exam-003.typ
-          options: |
-            --root
-            ./examples/
+          # options: |
+          #   --root
+          #   ./examples/
               
       # - name: Typst
       #   uses: lvignoli/typst-action@main
