@@ -12,7 +12,7 @@ jobs:
     # working-directory: ./examples
     defaults:
       run:
-        working-directory: ./examples
+        working-directory: ./examples/
 
     steps:
       - name: Checkout
@@ -26,7 +26,7 @@ jobs:
         uses: lvignoli/typst-action@main   
         with:
           source_file: |
-            ./exam-003.typ
+            exam-003.typ
               
       # - name: Typst
       #   uses: lvignoli/typst-action@main
