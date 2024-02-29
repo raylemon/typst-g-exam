@@ -1,76 +1,37 @@
 name: Build Typst document (CI)
 on: [push, workflow_dispatch]
 
-# permissions:
-#   contents: write
-
 jobs:
   build:
     runs-on: ubuntu-latest
-    # working-directory: ./examples
-    # defaults:
-    #   run:
-    #     working-directory: ./examples/
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      # - name: Sample directory
-      #   run: |
-      #     cd ./examples/
-      
+     
       - uses: typst-community/setup-typst@v3
         with:
-          # cache-dependency-path: g-exam.typ
           version: latest
-
-      # - name: compile
-      #   run: |
-      #     cd ./examples/
-      #     typst compile exam-003.typ 
 
       - name: Compile Typst to PDF
         uses: mkpoli/compile-typst-action@main
         with:
-          source_paths: 'examples/exam-001.typ'
-          output_paths: 'examples/exam-001.ci.pdf'
+          source_paths: 'examples/exam-001.typ examples/exam-002.typ examples/exam-003.typ examples/exam-005.typ examples/exam-localization.typ examples/exam-minimal.typ'
+          output_paths: 'examples/exam-001.ci.typ examples/exam-002.ci.typ examples/exam-003.ci.typ examples/exam-005.ci.typ examples/exam-localization.ci.typ examples/exam-minimal.ci.typ'
           root_path: '.'
-
-      # - name: Typst
-      #   uses: lvignoli/typst-action@main   
-      #   with:
-      #     source_file: |
-      #       examples/exam-003.typ
-      #     # options: |
-      #     #   --root
-      #     #   ./examples/
-              
-      # - name: Typst
-      #   uses: lvignoli/typst-action@main
-      #   with:
-      #     source_file: |
-      #       exam-001.typ
-      #       exam-002.typ
-      #       exam-minimal.typ
 
       - name: Check existence of output file
         run: |
           test -e "examples/exam-001.ci.pdf"
+          test -e "examples/exam-002.ci.pdf"
+          test -e "examples/exam-003.ci.pdf"
+          test -e "examples/exam-004.ci.pdf"
+          test -e "examples/exam-localization.ci.pdf"
+          test -e "examples/exam-minimal.ci.pdf"
+
 
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:
           name: examples
           path: ./examples/*.ci.pdf
-
-      # - name: Get current date
-      #   id: date
-      #   run: echo "DATE=$(date +%Y-%m-%d-%H:%M)" >> $GITHUB_ENV
-
-      # - name: Release
-      #   uses: softprops/action-gh-release@v1
-      #   if: github.ref_type == 'tag'
-      #   with:
-      #     name: "${{ github.ref_name }} — ${{ env.DATE }}"
-      #     files: main.pdf
