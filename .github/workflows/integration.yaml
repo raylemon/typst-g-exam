@@ -26,8 +26,8 @@ jobs:
           source_file: |
             examples/exam-003.typ
           options: |
-            fonts/
-            -vv
+            --root
+            ./examples/
               
       # - name: Typst
       #   uses: lvignoli/typst-action@main
