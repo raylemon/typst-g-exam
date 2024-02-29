@@ -23,15 +23,20 @@ jobs:
       - uses: typst-community/setup-typst@v3
         with:
           cache-dependency-path: g-exam.typ
+          version: latest
 
-      - name: Typst
-        uses: lvignoli/typst-action@main   
-        with:
-          source_file: |
-            examples/exam-003.typ
-          # options: |
-          #   --root
-          #   ./examples/
+      - name: compile
+        run: |
+          typst compile example/exam-003.typ
+
+      # - name: Typst
+      #   uses: lvignoli/typst-action@main   
+      #   with:
+      #     source_file: |
+      #       examples/exam-003.typ
+      #     # options: |
+      #     #   --root
+      #     #   ./examples/
               
       # - name: Typst
       #   uses: lvignoli/typst-action@main
