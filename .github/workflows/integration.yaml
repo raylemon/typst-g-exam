@@ -7,6 +7,8 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    working-directory: ./examples
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -16,8 +18,7 @@ jobs:
       #     cd ./examples/
 
       - name: Typst
-        uses: lvignoli/typst-action@main
-        working-directory: ./examples
+        uses: lvignoli/typst-action@main   
         with:
           source_file: |
             exam-003.typ
