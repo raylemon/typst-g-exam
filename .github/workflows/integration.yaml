@@ -61,7 +61,7 @@ jobs:
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:
-          name: examles
+          name: PDF
           path: '*.pdf'
 
       # - name: Get current date
