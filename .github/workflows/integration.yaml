@@ -30,7 +30,7 @@ jobs:
       #     cd ./examples/
       #     typst compile exam-003.typ 
 
-       - name: Compile Typst to PDF
+      - name: Compile Typst to PDF
         uses: mkpoli/compile-typst-action@main
         with:
           source_paths: 'examples/exam-003.typ'
