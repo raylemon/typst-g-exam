@@ -4,14 +4,15 @@ on: [push, workflow_dispatch]
 permissions:
   contents: write
 
-defaults:
-  run:
-    working-directory: ./examples
+
 
 jobs:
   build:
     runs-on: ubuntu-latest
     # working-directory: ./examples
+    defaults:
+      run:
+        working-directory: ./examples
 
     steps:
       - name: Checkout
@@ -25,15 +26,15 @@ jobs:
         uses: lvignoli/typst-action@main   
         with:
           source_file: |
-            exam-003.typ
+            ./exam-003.typ
               
-      - name: Typst
-        uses: lvignoli/typst-action@main
-        with:
-          source_file: |
-            exam-001.typ
-            exam-002.typ
-            exam-minimal.typ
+      # - name: Typst
+      #   uses: lvignoli/typst-action@main
+      #   with:
+      #     source_file: |
+      #       exam-001.typ
+      #       exam-002.typ
+      #       exam-minimal.typ
 
       # - name: Upload PDF file
       #   uses: actions/upload-artifact@v3
