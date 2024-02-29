@@ -8,9 +8,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     # working-directory: ./examples
-    defaults:
-      run:
-        working-directory: ./examples/
+    # defaults:
+    #   run:
+    #     working-directory: ./examples/
 
     steps:
       - name: Checkout
@@ -24,7 +24,7 @@ jobs:
         uses: lvignoli/typst-action@main   
         with:
           source_file: |
-            examples/exam-003.typ
+            exam-003.typ
           # options: |
           #   --font-path
           #   fonts/
