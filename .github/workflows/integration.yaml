@@ -62,7 +62,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: examles
-          path: *.pdf
+          path: '*.pdf'
 
       # - name: Get current date
       #   id: date
