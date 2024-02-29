@@ -20,14 +20,14 @@ jobs:
       - name: Compile Typst to PDF
         uses: mkpoli/compile-typst-action@main
         with:
-          source_paths: |
-            "examples/exam-001.typ 
-            examples/exam-002.typ 
-            examples/exam-003.typ 
-            examples/exam-005.typ
-            examples/exam-localization.typ
-            examples/exam-minimal.typ"
+          source_paths: "examples/exam-001.typ examples/exam-002.typ examples/exam-003.typ examples/exam-005.typ"
           root_path: '.'
+
+      - name: Compile Typst to PDF
+        uses: mkpoli/compile-typst-action@main
+        with:
+          source_paths: "examples/exam-localization.typ examples/exam-minimal.typ"
+          root_path: '.'          
 
       - name: Check existence of output file
         run: |
