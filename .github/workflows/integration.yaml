@@ -25,10 +25,10 @@ jobs:
         with:
           source_file: |
             examples/exam-003.typ
-          # options: |
-          #   --font-path
-          #   fonts/
-          #   -vv
+          options: |
+            --font-path
+            fonts/
+            -vv
               
       # - name: Typst
       #   uses: lvignoli/typst-action@main
