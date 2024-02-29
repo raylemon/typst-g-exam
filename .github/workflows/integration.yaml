@@ -11,12 +11,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Sample directory
-        run: |
-          cd ./examples/
+      # - name: Sample directory
+      #   run: |
+      #     cd ./examples/
 
       - name: Typst
         uses: lvignoli/typst-action@main
+        working-directory: ./examples
         with:
           source_file: |
             exam-003.typ
