@@ -16,7 +16,13 @@ jobs:
       - name: Compile Typst to PDF
         uses: mkpoli/compile-typst-action@main
         with:
-          source_paths: 'examples/exam-001.typ examples/exam-002.typ examples/exam-003.typ examples/exam-005.typ examples/exam-localization.typ examples/exam-minimal.typ'
+          source_paths: |
+            examples/exam-001.typ 
+            examples/exam-002.typ 
+            examples/exam-003.typ 
+            examples/exam-005.typ 
+            examples/exam-localization.typ 
+            examples/exam-minimal.typ
           output_paths: 'examples/exam-001.ci.typ examples/exam-002.ci.typ examples/exam-003.ci.typ examples/exam-005.ci.typ examples/exam-localization.ci.typ examples/exam-minimal.ci.typ'
           root_path: '.'
 
