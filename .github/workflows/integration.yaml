@@ -11,19 +11,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Sample directory
+        run: |
+          cd ./examples/
+
       - name: Typst
         uses: lvignoli/typst-action@main
         with:
           source_file: |
-            ./examples/exam-003.typ
+            exam-003.typ
               
       - name: Typst
         uses: lvignoli/typst-action@main
         with:
           source_file: |
-            examples/exam-001.typ
-            examples/exam-002.typ
-            examples/exam-minimal.typ
+            exam-001.typ
+            exam-002.typ
+            exam-minimal.typ
 
       # - name: Upload PDF file
       #   uses: actions/upload-artifact@v3
