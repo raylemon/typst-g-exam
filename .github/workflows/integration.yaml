@@ -13,11 +13,15 @@ jobs:
         with:
           version: latest
 
+      - name: Delete samples
+        run: |
+          rm /examples/*.pdf
+
       - name: Compile Typst to PDF
         uses: mkpoli/compile-typst-action@main
         with:
           source_paths: "examples/exam-001.typ examples/exam-002.typ examples/exam-003.typ examples/exam-005.typ examples/exam-localization.typ examples/exam-minimal.typ"
-          output_paths: 'examples/exam-001.ci.pdf examples/exam-002.ci.pdf examples/exam-003.ci.pdf examples/exam-005.ci.pdf examples/exam-localization.ci.pdf examples/exam-minimal.ci.pdf'
+          # output_paths: 'examples/exam-001.ci.pdf examples/exam-002.ci.pdf examples/exam-003.ci.pdf examples/exam-005.ci.pdf examples/exam-localization.ci.pdf examples/exam-minimal.ci.pdf'
           root_path: '.'
 
       # - name: Check existence of output file
@@ -29,6 +33,15 @@ jobs:
       #     test -e "examples/exam-localization.ci.pdf"
       #     test -e "examples/exam-minimal.ci.pdf"
 
+
+      - name: Check existence of output file
+        run: |
+          test -e "examples/exam-001.pdf"
+          test -e "examples/exam-002.pdf"
+          test -e "examples/exam-003.pdf"
+          test -e "examples/exam-004.pdf"
+          test -e "examples/exam-localization.pdf"
+          test -e "examples/exam-minimal.pdf"
 
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
