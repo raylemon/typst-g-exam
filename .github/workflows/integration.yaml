@@ -27,7 +27,7 @@ jobs:
 
       - name: compile
         run: |
-          typst compile examples/exam-003.typ
+          typst compile examples/exam-003.typ --root ./examples/
 
       # - name: Typst
       #   uses: lvignoli/typst-action@main   
