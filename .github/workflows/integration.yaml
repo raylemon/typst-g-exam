@@ -24,7 +24,7 @@ jobs:
         uses: lvignoli/typst-action@main   
         with:
           source_file: |
-            exam-003.typ
+            example/exam-003.typ
           # options: |
           #   --font-path
           #   fonts/
