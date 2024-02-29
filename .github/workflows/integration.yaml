@@ -34,7 +34,7 @@ jobs:
         uses: mkpoli/compile-typst-action@main
         with:
           source_paths: 'examples/exam-001.typ'
-          # output_paths: 'examples/exam-002.pdf'
+          output_paths: 'examples/exam-001.ci.pdf'
           root_path: '.'
 
       # - name: Typst
@@ -56,13 +56,13 @@ jobs:
 
       - name: Check existence of output file
         run: |
-          test -e "examples/exam-001.pdf"
+          test -e "examples/exam-001.ci.pdf"
 
       - name: Upload PDF file
         uses: actions/upload-artifact@v3
         with:
           name: examples
-          path: ./examples/*.pdf
+          path: ./examples/*.ci.pdf
 
       # - name: Get current date
       #   id: date
